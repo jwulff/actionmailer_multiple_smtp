@@ -4,40 +4,40 @@ Gives ActionMailer ability to user different SMTP accounts based on a message's 
 
 In your environments (config/environments/*.rb) add something like this to make mail from 'special_sender@domain.com' use the :username => 'special_sender' SMTP settings and all other mail use the :username => 'mailer' SMTP settings.
 
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-  :address   => 'smtp.domain.com',
-  :domain    => 'domain.com',
-  :username  => 'mailer',
-  :password  => '******'
-}
-ActionMailer::Base.smtp_settings_by_from_address['special_sender@domain.com'] = {
-  :address   => 'smtp.domain.com',
-  :domain    => 'domain.com',
-  :username  => 'special_sender',
-  :password  => '******'
-}
-
-If you're using GMail for SMTP, install the tlsmail gem and add something like this to your environments:
-
-Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.gmail.com',
-  :port           => 587,
-  :domain         => 'domain.com',
-  :user_name      => 'user@domain.com',
-  :password       => '******',
-  :authentication => :plain
-}
-ActionMailer::Base.smtp_settings_by_from_address['special_sender@domain.com'] = {
-  :address        => 'smtp.gmail.com',
-  :port           => 587,
-  :domain         => 'domain.com',
-  :user_name      => 'special_sender@domain.com',
-  :password       => '******',
-  :authentication => :plain
-}
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address   => 'smtp.domain.com',
+    :domain    => 'domain.com',
+    :username  => 'mailer',
+    :password  => '******'
+  }
+  ActionMailer::Base.smtp_settings_by_from_address['special_sender@domain.com'] = {
+    :address   => 'smtp.domain.com',
+    :domain    => 'domain.com',
+    :username  => 'special_sender',
+    :password  => '******'
+  }
+  
+  If you're using GMail for SMTP, install the tlsmail gem and add something like this to your environments:
+  
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.gmail.com',
+    :port           => 587,
+    :domain         => 'domain.com',
+    :user_name      => 'user@domain.com',
+    :password       => '******',
+    :authentication => :plain
+  }
+  ActionMailer::Base.smtp_settings_by_from_address['special_sender@domain.com'] = {
+    :address        => 'smtp.gmail.com',
+    :port           => 587,
+    :domain         => 'domain.com',
+    :user_name      => 'special_sender@domain.com',
+    :password       => '******',
+    :authentication => :plain
+  }
 
 == Copyright
 

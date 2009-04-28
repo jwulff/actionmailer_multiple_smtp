@@ -2,6 +2,15 @@
 
 Gives ActionMailer ability to use different SMTP accounts based on a message's from address.
 
+
+== Install
+
+  sudo gem sources -a http://gems.github.com
+  sudo gem install jwulff-actionmailer_multiple_smtp
+
+
+== Usage
+
 In your environments (config/environments/*.rb) add something like this to make mail from 'special_sender@domain.com' use the :username => 'special_sender' SMTP settings and all other mail use the :username => 'mailer' SMTP settings.
 
   # actionmailer_multiple_smtp needs to be required here because environments load before gems.

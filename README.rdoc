@@ -18,7 +18,7 @@ In your environments (config/environments/*.rb) add something like this to make 
     :password  => '******'
   }
   
-  If you're using GMail for SMTP, install the tlsmail gem and add something like this to your environments:
+If you're using GMail for SMTP, install the tlsmail gem and add something like this to your environments:
   
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   ActionMailer::Base.delivery_method = :smtp

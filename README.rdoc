@@ -1,0 +1,7 @@
+= actionmailer_multiple_smtp
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 John Wulff. See LICENSE for details.

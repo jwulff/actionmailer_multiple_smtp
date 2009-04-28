@@ -1,6 +1,6 @@
 = actionmailer_multiple_smtp
 
-Gives ActionMailer ability to user different SMTP accounts based on a message's from address.
+Gives ActionMailer ability to use different SMTP accounts based on a message's from address.
 
 In your environments (config/environments/*.rb) add something like this to make mail from 'special_sender@domain.com' use the :username => 'special_sender' SMTP settings and all other mail use the :username => 'mailer' SMTP settings.
 

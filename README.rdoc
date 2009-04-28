@@ -4,13 +4,18 @@ Gives ActionMailer ability to use different SMTP accounts based on a message's f
 
 In your environments (config/environments/*.rb) add something like this to make mail from 'special_sender@domain.com' use the :username => 'special_sender' SMTP settings and all other mail use the :username => 'mailer' SMTP settings.
 
+  # actionmailer_multiple_smtp needs to be required here because environments load before gems.
+  require 'actionmailer_multiple_smtp'
+
   ActionMailer::Base.delivery_method = :smtp
+
   ActionMailer::Base.smtp_settings = {
     :address   => 'smtp.domain.com',
     :domain    => 'domain.com',
     :username  => 'mailer',
     :password  => '******'
   }
+
   ActionMailer::Base.smtp_settings_by_from_address['special_sender@domain.com'] = {
     :address   => 'smtp.domain.com',
     :domain    => 'domain.com',
@@ -20,8 +25,13 @@ In your environments (config/environments/*.rb) add something like this to make 
   
 If you're using GMail for SMTP, install the tlsmail gem and add something like this to your environments:
   
+  # actionmailer_multiple_smtp needs to be required here because environments load before gems.
+  require 'actionmailer_multiple_smtp'
+
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+
   ActionMailer::Base.delivery_method = :smtp
+
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.gmail.com',
     :port           => 587,
@@ -30,6 +40,7 @@ If you're using GMail for SMTP, install the tlsmail gem and add something like t
     :password       => '******',
     :authentication => :plain
   }
+
   ActionMailer::Base.smtp_settings_by_from_address['special_sender@domain.com'] = {
     :address        => 'smtp.gmail.com',
     :port           => 587,

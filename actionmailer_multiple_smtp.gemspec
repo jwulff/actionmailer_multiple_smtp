@@ -32,8 +32,6 @@ Gem::Specification.new do |s|
     "spec/actionmailer_multiple_smtp_spec.rb",
     "spec/spec_helper.rb"
   ]
-  
-  s.add_dependency 'actionmailer'
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

@@ -10,7 +10,8 @@ begin
     gem.homepage = "http://github.com/jwulff/actionmailer_multiple_smtp"
     gem.authors = ["John Wulff"]
     gem.rubyforge_project = "actionmailer_multiple_smtp"
-  
+    gem.add_dependency 'actionmailer'
+    
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError

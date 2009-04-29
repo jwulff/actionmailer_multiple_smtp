@@ -20,7 +20,7 @@ In your environments (config/environments/*.rb) add something like this to make 
     :username  => 'mailer',
     :password  => '******'
   }
-	config.after_initialize do
+  config.after_initialize do
     ActionMailer::Base.smtp_settings_by_from_address['special_sender@domain.com'] = {
       :address   => 'smtp.domain.com',
       :domain    => 'domain.com',
